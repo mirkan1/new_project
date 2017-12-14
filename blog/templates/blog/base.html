@@ -12,6 +12,7 @@
                 {% if user.is_authenticated %}
                     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                     <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="{% url 'main' %}" class="top-menu"><span class="glyphicon glyphicon-heart"></span></a>
                     <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
                 {% else %}
                     <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
@@ -19,7 +20,6 @@
                 <h1><a href="/">Django Girls Blog</a></h1>
             </div>
             <div>
-                {% if user.is_authenticated %}
                     <div class="content container">
                         <div class="row">
                             <div class="col-md-8">
@@ -28,27 +28,7 @@
                             </div>
                         </div>
                     </div>
-                {% else %}
                     <div>
-                        <h1 class=""><a href="{% url 'login' %}">You need to login in order to see the content, Siko bey</a></h1><br/>
-                        <form method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
-                            <table>
-                            <tr>
-                                <td>{{ form.username.label_tag }}</td>
-                                <td>{{ form.username }}</td>
-                            </tr>
-                            <tr>
-                                <td>{{ form.password.label_tag }}</td>
-                                <td>{{ form.password }}</td>
-                            </tr>
-                            </table>
-
-                            <input type="submit" value="login" />
-                            <input type="hidden" name="next" value="{{ next }}" />
-                        </form>
-                    </div>
-                {% endif %}
             </div>
         </body>
 </html>
