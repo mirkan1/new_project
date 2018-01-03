@@ -25,7 +25,14 @@ SECRET_KEY = 'vph7s9ra3u+i12%uq6@ityg3-#bs0n8&3ex_yum)#&tuhyfi#%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'mirkan1.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 
+    'mirkan1.pythonanywhere.com',
+    '127.0.0.1',
+    'mirr.com',
+    'www.mirr.com',
+    'blog.mirr.com',
+    'kaka.mirr.com',
+]
 
 
 # Application definition
@@ -37,10 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #third party
     'blog',
+    #'django_hosts',
+    #custom app
+    'analytics',
+    'shorterner',
 ]
 
 MIDDLEWARE = [
+    #'django_hosts.middleware.HostsRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,9 +61,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+ROOT_HOSTCONF = 'mysite.hosts'
+DEFAULT_HOST = 'www'
+DEFAULT_REDIRECT_URL = "http://www.mirr.com:8000"
+PARENT_HOST = 'mirr.com:8000'
 
 TEMPLATES = [
     {
@@ -122,3 +140,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = '/'
+
+SHORTCODE_MAX = 15
+SHORTCODE_MIN = 6

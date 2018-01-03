@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from . import url_shorter
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
@@ -12,7 +13,7 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
 	url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
-    url(r'^main/$', views.main, name='main'),
+    url(r'^main/$', url_shorter.main1, name='main'),
 	
 
 ]

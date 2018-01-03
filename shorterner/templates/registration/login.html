@@ -1,9 +1,8 @@
 {% extends 'blog/base.html' %}
 
-
 {% block content %}
 <div class="logonlazim1">
-<h1 class="loglazim">You need to login in order to see the content, Siko bey</h1><br/>
+<h1 class="loglazim">You need to log in in order to see the content, Siko bey</h1><br/>
 </div>
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}

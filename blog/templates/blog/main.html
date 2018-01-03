@@ -1,5 +1,27 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h1>SA-AS</h1>
+<div class="logonlazim1">
+</div>
+    <form method="GET" action="{% url 'main' %}">
+            <table>
+            <tr>
+            <td width="100" height="30" >URL:</td>
+            <td width="300"><input name="" type="text"></td>
+            </tr>
+            <tr>
+            <td width="100" height="30" >shortened URL:</td>
+            <td width="300"><input name="" type="make_tiny"></td>
+        </tr>
+        <tr>
+            <input type="submit" value="Log in"/>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </tr>
+            
+            </table>
+
+            <input type="submit" value="{{ make_tiny }" />
+            <input type="hidden" name="next" value="{{ next }}" />
+
+     </form>
 {% endblock %}

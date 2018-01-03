@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div style='align-text: center; width: 800px; margin: 0 auto;'>
+	<h1>Olusturuldu</h1><br/>
+	<p>{{ object.url }}</p><br/>
+	<p><a href="{{ object.get_short_url }}">{{ object.get_short_url }}</a></p>
+	<a href="/urlshort">Yeni Olustur</a>
+</div>
+<div style="margin: -130px 100px">
+	{% if object.clickevent %}<p>Count: {{ object.clickevent.count }}</p>{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div style='width: 800px; margin: 0 auto;'>
+		<h1>{{ title }}</h1>
+		<form method="POST" action=".">
+			{% csrf_token %}
+			<!-- <input type="text" placeholder="yaz ameka" name="url"> -->
+			{{ form.as_p }}
+			<input type="submit" value="Kısalt" name="">
+		</form>
+	</div>
+{% endblock %}
